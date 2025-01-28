@@ -1,18 +1,23 @@
-   /* Custom animation for infinite scrolling with stops */
+ /* Infinite Scrolling Animation*/
    @keyframes seamless-scroll {
+
+    /* Stop at the first panel */
     0%, 20% { 
-      transform: translateX(0); /* Stop at the first panel */
+      transform: translateX(0); 
     }
+
+    /* Move to the second panel */
     30%, 50% { 
-      transform: translateX(-50%); /* Move to the second panel */
+      transform: translateX(-50%); 
     }
   }
-
+  
+/* Applies the infinite scroll animation. */
   .infinite-scroll {
     animation: seamless-scroll 30s linear infinite;
   }
 
-  /* Custom styles for active link indicator (pseudo-element) */
+/* Tab Styling */
 .tab-links::after {
     content: '';
     width: 0;
@@ -24,31 +29,34 @@
     transition: width 0.5s;
 }
 
+/* Expands the underline to 50% width for the active tab */
 .tab-links.active-link::after {
     width: 50%;
 }
 
-/* Active tab content */
+/* Controls visibility of tab content sections */
 .tab-contents.active-tab {
     display: block;
 }
 
- /* Keyframes for fading in and out */
+ /* Fade Animation for Images */
  @keyframes fade-in-out {
+  /* Fully transparent */
   0%, 100% {
     opacity: 0;
   }
+   /* Fully visible */
   50% {
     opacity: 1;
   }
 }
 
-/* Animation for the fading effect */
+/* Applies the fade animation to images */
 .animate-fade-in-out {
   animation: fade-in-out 6s ease-in-out infinite;
 }
 
-/* Making sure the images transition one after the other */
+/* Delays the animation for the second image to create an alternating effect */
 .animate-slide-images img:nth-child(1) {
   animation-delay: 0s;  /* First image starts immediately */
 }
